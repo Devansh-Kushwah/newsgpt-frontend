@@ -5,6 +5,8 @@ import QuickStartSection from "./components/QuickStartSection";
 import ChatHistory from "./components/ChatHistory";
 import { useLocation, useParams } from "react-router-dom";
 import baseUrl from "./config/index";
+import { v4 as uuidv4 } from "uuid";
+
 interface Message {
   text: string;
   isUser: boolean;
@@ -25,16 +27,30 @@ function App() {
   const [newSessionId, setNewSessionId] = useState<string | null>(null);
   const pathname = useLocation();
   const [quickStart, setQuickStart] = useState("");
+  const [deviceId, setDeviceId] = useState<string>("");
+
+  useEffect(() => {
+    let storedDeviceId = localStorage.getItem("deviceId");
+
+    if (!storedDeviceId) {
+      storedDeviceId = uuidv4();
+      localStorage.setItem("deviceId", storedDeviceId);
+    }
+
+    setDeviceId(storedDeviceId);
+  }, []);
 
   useEffect(() => {
     setMessages([]);
     if (!sessionId) {
-      setNewSessionId(Math.random().toString(36).substring(2, 15));
+      setNewSessionId(
+        `${deviceId}:d-and-s:${Math.random().toString(36).substring(2, 15)}`
+      );
     } else {
       setNewSessionId(sessionId);
       getChatHistory();
     }
-  }, [sessionId, pathname]);
+  }, [sessionId, pathname, deviceId]);
 
   const getChatHistory = async () => {
     const response = await fetch(`${baseUrl}/api/chat/history`, {

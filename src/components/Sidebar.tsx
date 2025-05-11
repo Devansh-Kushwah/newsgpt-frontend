@@ -13,7 +13,7 @@ const Sidebar = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const { pathname } = useLocation();
-
+  const deviceId = localStorage.getItem("deviceId");
   useEffect(() => {
     fetchChatSessions();
   }, []);
@@ -21,10 +21,11 @@ const Sidebar = () => {
   const fetchChatSessions = async () => {
     try {
       const response = await fetch(`${baseUrl}/api/chat/sessions`, {
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({ deviceId }),
       });
       const data = await response.json();
       setChatSessions(data);
