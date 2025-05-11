@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import baseUrl from "../config/index";
 interface ChatSession {
   sessionId: string;
   lastMessage: string;
@@ -20,7 +20,7 @@ const Sidebar = () => {
 
   const fetchChatSessions = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/chat/sessions", {
+      const response = await fetch(`${baseUrl}/api/chat/sessions`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

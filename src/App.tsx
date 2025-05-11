@@ -4,7 +4,7 @@ import PromptInput from "./components/PromptInput";
 import QuickStartSection from "./components/QuickStartSection";
 import ChatHistory from "./components/ChatHistory";
 import { useLocation, useParams } from "react-router-dom";
-
+import baseUrl from "./config/index";
 interface Message {
   text: string;
   isUser: boolean;
@@ -37,7 +37,7 @@ function App() {
   }, [sessionId, pathname]);
 
   const getChatHistory = async () => {
-    const response = await fetch(`http://localhost:8000/api/chat/history`, {
+    const response = await fetch(`${baseUrl}/api/chat/history`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +86,7 @@ function App() {
     setIsStreaming(true);
 
     try {
-      const response = await fetch("http://localhost:8000/api/chat?limit=3", {
+      const response = await fetch(`${baseUrl}/api/chat?limit=3`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
