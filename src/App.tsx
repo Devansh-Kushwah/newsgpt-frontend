@@ -163,7 +163,7 @@ function App() {
 
   return (
     <main
-      className={`flex-1 flex flex-col items-center justify-center px-4 py-12 max-w-5xl mx-auto w-full overflow-y-auto ${
+      className={`flex-1 flex flex-col items-center justify-around sm:justify-center h-[100vh] px-4 py-12 max-w-5xl mx-auto w-full overflow-y-auto ${
         messages.length > 0 ? "justify-between" : ""
       }`}
     >

@@ -31,11 +31,13 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({ messages }) => {
             }  rounded-lg `}
           >
             <div
-              className={`p-4 rounded-lg ${
+              className={`p-2 sm:p-3 rounded-lg ${
                 message.isUser ? "glass-effect" : "leading-7"
               } `}
             >
-              <p className="text-white">{getParsedMessage(message.text)}</p>
+              <p className="text-sm sm:text-md text-white">
+                {getParsedMessage(message.text)}
+              </p>
               <p className="text-xs text-gray-400 mt-1 text-right">
                 {message.isUser
                   ? message.timestamp.toLocaleTimeString("en-US", {

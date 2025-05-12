@@ -143,7 +143,7 @@ function History() {
   return (
     <main className="h-full overflow-y-auto">
       <div
-        className={`flex flex-col items-center justify-center px-4 py-12 max-w-5xl mx-auto w-full min-h-full ${
+        className={`flex flex-col items-center justify-around sm:justify-center px-4 py-12 max-w-5xl mx-auto w-full min-h-full ${
           messages.length > 0 ? "justify-between" : ""
         }`}
       >

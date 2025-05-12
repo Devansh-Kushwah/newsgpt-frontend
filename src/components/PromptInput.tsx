@@ -47,7 +47,7 @@ const PromptInput: React.FC<PromptInputProps> = ({
               }
             }}
             placeholder="Ask about any news topic..."
-            className="w-full bg-transparent text-white p-6 pl-6 pr-24 rounded-lg focus:outline-none placeholder-gray-400"
+            className="w-full bg-transparent text-white p-4 sm:p-6 pl-6 pr-24 rounded-lg focus:outline-none placeholder-gray-400"
           />
           <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex gap-3">
             <button

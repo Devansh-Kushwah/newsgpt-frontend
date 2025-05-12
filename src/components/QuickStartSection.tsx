@@ -10,7 +10,7 @@ const QuickStartCard = ({
   return (
     <button
       onClick={() => setQuickStart(title)}
-      className="glass-effect hover:bg-[#2a2a32] text-white py-3 px-5 rounded-full text-sm transition-colors border border-gray-700"
+      className="glass-effect hover:bg-[#2a2a32] text-white py-2 px-3 sm:py-3 sm:px-5 rounded-full text-sm transition-colors border border-gray-700"
     >
       {title}
     </button>
