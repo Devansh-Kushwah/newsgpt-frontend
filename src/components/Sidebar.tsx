@@ -48,8 +48,8 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`left-0 top-0 h-full bg-[#0f1014] text-white transition-all duration-300 ${
-        isCollapsed ? "w-16" : "w-64"
+      className={`left-0 top-0 h-full z-20 bg-[#0f1014] text-white transition-all duration-300 ${
+        isCollapsed ? "w-16" : "w-64 fixed sm:static"
       }`}
     >
       <div className="flex flex-col h-full">
